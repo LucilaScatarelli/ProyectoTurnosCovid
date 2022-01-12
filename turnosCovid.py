@@ -9,5 +9,5 @@ if grupoRiesgo=="si" or grupoRiesgo=="Si" or grupoRiesgo=="SI":
  
 numeroTelefonico=int(input("Ingrese su numero de contacto, por favor: "))
 
-print("Muchas Gracias por completar el formulario de vacunación contra COVID19. Lo contactaremos a la brevedad.")
+print("Muchas Gracias por completar el formulario de vacunación contra COVID19. Lo contactaremos a la brevedad para otorgarle un turno.")
   
