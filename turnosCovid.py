@@ -1,3 +1,7 @@
+from ast import Continue
+from operator import contains
+
+
 nombre= input('\nIngrese su Nombre completo por favor: ') #pido nombre
 nombre= nombre.capitalize()
 
@@ -29,30 +33,57 @@ while comprobacion(email) == False:
     
     
 else:
-    print('La dirección de correo introducida es correcta, proseguimos con los datos')
+    Continue
+    #print('La dirección de correo introducida es correcta, proseguimos con los datos')
    
     
 
 #............acá empieza tu parte.................
 
-try:
-    edad=int(input("\nIngrese la edad en números, por favor: "))
-    while edad <= 0 or edad>100:
-        
-         print("Edad incorrecta. ")
-         edad=int(input("Ingrese la edad en números, por favor: "))
-except ValueError:
-    print("Valor incorrecto. Vuelva a cargar el formulario para comenzar de nuevo")
 
+def comprueba_edad (ed):  #función que pide el mail y evalúa si está bien escrito en función de poseer una arroba y uno o más puntos
+    global edad       #de lo contrario lo pide nuevamente
+    comprueba = False
+    puntos = 0
     
-   
+    for i in ed:
+        if i.isnumeric() == True:
+            puntos+=1
+        
+    
+    if puntos >= 1:
+        comprueba = True
+    
+    return comprueba
 
-grupoRiesgo= input("\nPosee una patologia de base que lo convierta en una persona de grupo de riesgo? (Si/No): ")
-grupoRiesgo=grupoRiesgo.lower() # con esta función pasás todo a minúscula, no importa como lo haya ingresado
-if grupoRiesgo=="si" :#or grupoRiesgo=="Si" or grupoRiesgo=="SI": <---- entonces esto ya no es necesario
-    patologia=input("Ingrese cual es la patologìa por favor: ")
+
+
+edad = input('\nIngresá tu edad: ')
+         
+while comprueba_edad(edad) == False:
+     print('La edad debe introducirse en números')
+     edad = input('\nIngresá tu edad: ')
+
 else:
-    patologia = 'No posee'
+    Continue
+    #print('La dirección de correo introducida es correcta, proseguimos con los datos')
+
+salida = False
+if int(edad) < 18:
+    print('Debes ser mayo a 18 para registrarte')
+    Salida = True
+    
+    
+
+while salida == False:   
+    grupoRiesgo= input("\nPosee una patologia de base que lo convierta en una persona de grupo de riesgo? (Si/No): ")
+    grupoRiesgo=grupoRiesgo.lower() # con esta función pasás todo a minúscula, no importa como lo haya ingresado
+    if grupoRiesgo=="si" :#or grupoRiesgo=="Si" or grupoRiesgo=="SI": <---- entonces esto ya no es necesario
+        patologia=input("Ingrese cual es la patologìa por favor: ")
+        salida= True
+    else:
+        patologia = 'No posee'
+        break
     
 numeroTelefonico=int(input("\nIngrese su numero de contacto, por favor: "))
 
