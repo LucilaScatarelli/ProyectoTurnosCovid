@@ -38,11 +38,11 @@ else:
    
     
 
-#............acá empieza tu parte.................
 
 
-def comprueba_edad (ed):  #función que pide el mail y evalúa si está bien escrito en función de poseer una arroba y uno o más puntos
-    global edad       #de lo contrario lo pide nuevamente
+
+def comprueba_edad (ed): 
+    global edad       
     comprueba = False
     puntos = 0
     
@@ -66,7 +66,7 @@ while comprueba_edad(edad) == False:
 
 else:
     Continue
-    #print('La dirección de correo introducida es correcta, proseguimos con los datos')
+   
 
 salida = False
 if int(edad) < 18:
